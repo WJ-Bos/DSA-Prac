@@ -1,4 +1,4 @@
-package classes;
+package node;
 
 public class Node {
 

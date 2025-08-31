@@ -1,5 +1,7 @@
 package classes;
 
+import node.Node;
+
 import java.util.*;
 
 public class BinaryTrees {
@@ -137,7 +139,7 @@ public class BinaryTrees {
 
     private static Integer treeSumDepthRecursive(Node root){
         if(root == null) return 0;
-        return Integer.decode(root.val) + treeSumDepthRecursive(root.getLeft()) + treeSumDepthRecursive(root.getRight());
+        return Integer.decode(root.getVal()) + treeSumDepthRecursive(root.getLeft()) + treeSumDepthRecursive(root.getRight());
     }
 
     private static Integer treeSumBreadthIterative(Node root){
@@ -158,16 +160,16 @@ public class BinaryTrees {
     private static Double minTreeValRecursive(Node root){
         if(root == null) return Double.POSITIVE_INFINITY;
         return Math.min(
-                Double.parseDouble(root.val), Math.min(minTreeValRecursive(root.getLeft()), minTreeValRecursive(root.getRight()))
+                Double.parseDouble(root.getVal()), Math.min(minTreeValRecursive(root.getLeft()), minTreeValRecursive(root.getRight()))
         );
     }
 
     private static Double maxRootLeafPath(Node root){
         if(root == null) return Double.NEGATIVE_INFINITY;
         if(root.getLeft() == null && root.getRight() == null){
-            return Double.parseDouble(root.val);
+            return Double.parseDouble(root.getVal());
         }
-        return Double.parseDouble(root.val) + Math.max(
+        return Double.parseDouble(root.getVal()) + Math.max(
                 maxRootLeafPath(root.getLeft()), maxRootLeafPath(root.getRight())
         );
     }
