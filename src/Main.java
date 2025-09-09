@@ -217,6 +217,7 @@ public class Main {
          *
          * this Approach can be taken when We have certainty that the array is Always sorted
          * This is a Big O(n) solution -> worst case we dont find the element and we iterate the full size of n
+         * testing email
          */
 
         private static int[] twoSumSorted(int[] nums, int target) {
