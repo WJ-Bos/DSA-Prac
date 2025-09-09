@@ -3,14 +3,13 @@ package classes;
 public class BinarySearch {
     public static void main(String[] args) {
 
-        int[] arr = new int[1000000];
+        int[] arr = new int[10000000];
 
         for (int i = 0; i < arr.length ; i++) {
             arr[i] = i;
         }
 
-        System.out.println("Index of val = " + binarySearch(arr,67) );
-
+        System.out.println("Index of val = " + binarySearch(arr,668753) );
     }
 
     private static int binarySearch(int[] nums, int target) {

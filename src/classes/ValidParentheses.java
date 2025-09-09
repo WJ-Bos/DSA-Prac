@@ -8,7 +8,9 @@ public class ValidParentheses {
 
     public static void main(String[] args) {
         String brackets = "(){}(({{}}))[]";
+        String brackets2 = "(){}(({{}}))[]";
         System.out.println("Result -> " + isValidParentheses(brackets ));
+        System.out.println("Result -> " + isValidParentheses(brackets2 ));
     }
 
     private static Boolean isValidParentheses(String s) {

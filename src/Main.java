@@ -6,7 +6,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        int[] nums = new int[10000];
+        int[] nums = new int[1000000];
         for(int i = 0; i < nums.length; i++){
             nums[i] = i;
         }
@@ -17,9 +17,10 @@ public class Main {
             add("stet");
             add("bat");
             add("tab");
+            //add("Allie");
         }};
 
-        System.out.println(binarySearch(nums,607));
+        System.out.println(binarySearch(nums,607463));
         System.out.println(groupAnagrams(words));
 
         Node a = new Node("1");
@@ -166,6 +167,112 @@ public class Main {
         }
         return nums;
     }
+
+
+
+
+    private static class TwoPointer{
+
+        public static void main(String[] args) {
+            System.out.println(Arrays.toString(twoSumBruteForce(new int[]{1,2,5,4,1,3},9)));
+            System.out.println(Arrays.toString(twoSumSorted(new int[]{1,4,6,7,9,13,16,20,25},70)));
+            System.out.println(Arrays.toString(twoSumMap(new int[]{3,7,4,2,7,9,23},9)));
+        }
+
+        /**
+         * TWO SUM
+         * Given an Array of Integers, find two values in the Array that sum up to the Target value
+         *
+         * Array -> Traverse -> find Values
+         * This Could be done via a Brute force nested Loop for i in and for j in
+         * Bad approach O(n²) Time complexity because for the length of n, j is doing n many things
+         *
+         * Better approach -> if Sorted -> two pointers left and right -> O(n)
+         * Or
+         * Map Approach -> check if Complementary(target - val) exists in Map if not write val as key and Index as val
+         *                                                  -> if complementary exists return index at val and val at key
+         *                                                  -> O(n)
+         *
+         *                                                  Sorted [6,9,12,34,35,39] target = 56
+         *
+         */
+
+        private static int[] twoSumBruteForce(int[] nums, int target){
+
+            for(int i = 0; i < nums.length; i++){
+                for(int j = 0; j < nums.length; j++){
+                    if(nums[j] + nums[i] == target){
+                        return new int[]{i,j};
+                    }
+                }
+            }
+            return new int[]{};
+        }
+
+        /**
+         *
+         * @param nums
+         * @param target
+         * @return
+         *
+         * this Approach can be taken when We have certainty that the array is Always sorted
+         * This is a Big O(n) solution -> worst case we dont find the element and we iterate the full size of n
+         */
+
+        private static int[] twoSumSorted(int[] nums, int target) {
+
+            int left = 0;
+            int right = nums.length - 1;
+
+            while (left < right) {
+                if (nums[left] + nums[right] == target) {
+                    return new int[]{left, right};
+                }
+                if (nums[left] + nums[right] < target) {
+                    left++;
+                } else {
+                    right++;
+                }
+            }
+            return new int[]{};
+        }
+
+        /**
+         *  [3,7,4,2,7,9,23] target = 9
+         *
+         * i=0 → val=3 → comp=6 → not found → put(3,0)
+         * i=1 → val=7 → comp=2 → not found → put(7,1)
+         * i=2 → val=4 → comp=5 → not found → put(4,2)
+         * i=3 → val=2 → comp=7 → found at index 1 → return [3,1]
+         *
+         *
+         * Safest Approach array does not have to be sorted
+         * Worst case Big O(n)
+         */
+
+        private static int[] twoSumMap(int[] nums, int target){
+
+            Map<Integer,Integer> valueMap = new HashMap<>();
+            int complementary;
+
+            for(int i = 0; i < nums.length; i++){
+                complementary = target - nums[i];
+                if(valueMap.containsKey(complementary)){
+                    return new int[]{
+                            i, valueMap.get(complementary)
+                    };
+                }else{
+                    valueMap.put(nums[i],i);
+                }
+            }
+
+            return new int[]{};
+        }
+
+    }
+
+
+
 
 
 }

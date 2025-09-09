@@ -7,10 +7,11 @@ public class SlidingWindow {
 
     public static void main(String[] args) {
 
-        int[] nums = {1,12,-5,-6,50,3};
+        int[] nums = {1,12,-5,-6,50,3,5,7,12,45};
         int k = 4;
 
         System.out.println(longestSubstringNoDupes("abcabcadabcdefghiaffghadabcdefghijklmnopabcdef"));
+        System.out.println(longestSubstringNoDupes("abcdedabcdabcdefghijaaaa"));
         System.out.println(maximumAvgSubarray(nums,k));
     }
 
@@ -58,22 +59,5 @@ public class SlidingWindow {
         }
         return maxAvg;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
