@@ -36,7 +36,6 @@ public class TreeBfs {
     public static Boolean bfs(TreeNode root, Integer needle){
       Queue<TreeNode> q = new LinkedList<>();
 
-
       q.add(root);
       while(!q.isEmpty()){
           TreeNode curr = q.poll();

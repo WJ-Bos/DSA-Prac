@@ -26,4 +26,13 @@ public class PreOrderDFS {
         //Post Step
         return path;
     }
+
+    public boolean isTreeEqual(TreeNode first, TreeNode second){
+        if(first == null && second == null) return true;
+        if(first == null || second == null) return false;
+
+        if(!first.getValue().equals(second.getValue())) return false;
+
+        return isTreeEqual(first.getLeft(),second.getLeft()) && isTreeEqual(first.getRight(),second.getRight());
+    }
 }

@@ -1,4 +1,4 @@
-package classes.problems.twopointer;
+package classes.problems.arrays.twopointer;
 
 
 public class ContainerMostWater {
