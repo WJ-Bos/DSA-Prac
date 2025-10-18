@@ -1,9 +1,9 @@
-package classes;
+package classes.problems.binarysearch;
 
 public class BinarySearch {
     public static void main(String[] args) {
 
-        int[] arr = new int[10000000];
+        int[] arr = new int[100000000];
 
         for (int i = 0; i < arr.length ; i++) {
             arr[i] = i;
@@ -15,6 +15,7 @@ public class BinarySearch {
     private static int binarySearch(int[] nums, int target) {
         int low = 0;
         int high = nums.length - 1;
+        int numOfI = 0;
 
         while(low <= high){
             int midIndex = low + (high - low) / 2;
@@ -27,9 +28,12 @@ public class BinarySearch {
             }else if(midVal > target){
                 high = midIndex - 1;
             }else{
+                System.out.println("Num of Iteration -- > " + numOfI);
                 return midIndex;
             }
+            numOfI++;
         }
+
         return -1;
     }
 }

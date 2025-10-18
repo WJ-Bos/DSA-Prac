@@ -1,4 +1,4 @@
-package classes;
+package classes.problems.strings;
 
 import java.util.*;
 
@@ -45,7 +45,9 @@ public class Strings {
             if(map.containsKey(fs)){
                 map.get(fs).add(word);
             }else{
-                map.put(fs, new ArrayList<>());
+                ArrayList<String> list = new ArrayList<>();
+                list.add(word);
+                map.put(fs,list);
             }
         }
 
