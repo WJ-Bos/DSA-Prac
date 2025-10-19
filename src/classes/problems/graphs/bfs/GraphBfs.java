@@ -3,7 +3,9 @@ package classes.problems.graphs.bfs;
 import classes.utilities.Vertex;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 //Adjacency Matrix Implementation
 public class GraphBfs {
@@ -107,6 +109,60 @@ public class GraphBfs {
 
         Collections.reverse(path);
         return path;
+    }
+
+    public Map<Integer, List<Integer>> buildGraphInt(List<int[]> edges){
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+
+        for(int[] edge : edges){
+            int from = edge[0];
+            int to = edge[1];
+
+            graph.computeIfAbsent(from, k-> new ArrayList<>()).add(to);
+            graph.computeIfAbsent(to, k -> new ArrayList<>());
+        }
+
+        return graph;
+    }
+
+    public Map<Character, List<Character>> buildGraphChar(List<char[]> edges){
+        Map<Character, List<Character>> graph = new HashMap<>();
+
+        for(char[] edge : edges){
+            char from = edge[0];
+            char to = edge[1];
+
+            graph.computeIfAbsent(from, k-> new ArrayList<>()).add(to);
+            graph.computeIfAbsent(to, k -> new ArrayList<>());
+        }
+
+        return graph;
+    }
+
+    public static int shortestPath(Map<Character,List<Character>> graph, char source, char target){
+        Queue<Character> q = new LinkedList<>();
+        Map<Character, Integer> distances = new HashMap<>();
+        Set<Character> seen = new HashSet<>();
+
+        seen.add(source);
+        distances.put(source,0);
+        q.add(source);
+
+        while(!q.isEmpty()){
+            Character current = q.poll();
+            int distance = distances.get(current);
+
+            if(current == target) return distance;
+
+            for(Character neighbour : graph.get(current)){
+                if(!seen.contains(neighbour)){
+                    seen.add(neighbour);
+                    distances.put(neighbour,distance++);
+                    q.add(neighbour);
+                }
+            }
+        }
+        return -1;
     }
 }
 

@@ -3,6 +3,7 @@ package classes.problems.graphs.dfs;
 import classes.utilities.Vertex;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 //Adjacency List Impl
 public class GraphDfs {
@@ -136,15 +137,15 @@ public class GraphDfs {
 
     public static int numberOfComponents(Map<Integer, List<Integer>> graph) {
         Set<Integer> seen = new HashSet<>();
-        Set<Integer> allNodes = graph.keySet();
 
         int count = 0;
 
-        for (int node : allNodes) {
-           if(explore(graph,node, seen)){
+        for(int node : graph.keySet()){
+            if(explore(graph,node, seen)){
                count++;
-           }
+            }
         }
+
         return count;
     }
 
@@ -161,15 +162,16 @@ public class GraphDfs {
 
     public static int biggestComp(Map<Integer, List<Integer>> graph) {
         Set<Integer> seen = new HashSet<>();
-        Set<Integer> allNodes = graph.keySet();
 
         int largest = 0;
 
-        for (int node : allNodes) {
+        for(int node : graph.keySet()){
             if(!seen.contains(node)){
-                largest = Math.max(exploreCount(graph,node,seen),largest);
+                int size = exploreCount(graph,node,seen);
+               largest = Math.max(size,largest);
             }
         }
+
         return largest;
     }
 
