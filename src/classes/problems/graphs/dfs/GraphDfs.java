@@ -2,7 +2,6 @@ package classes.problems.graphs.dfs;
 
 import classes.utilities.Vertex;
 
-import javax.swing.*;
 import java.util.*;
 
 //Adjacency List Impl
@@ -137,65 +136,54 @@ public class GraphDfs {
 
     public static int numberOfComponents(Map<Integer, List<Integer>> graph) {
         Set<Integer> seen = new HashSet<>();
-        Stack<Integer> stack = new Stack<>();
         Set<Integer> allNodes = graph.keySet();
 
         int count = 0;
 
         for (int node : allNodes) {
-            if (!seen.contains(node)) {
-
-                stack.add(node);
-
-                while (!stack.isEmpty()){
-                    int current = stack.pop();
-
-                    seen.add(current);
-                    List<Integer> neigh = graph.get(current);
-                    for(int n : neigh){
-                        if(!seen.contains(n)){
-                            seen.add(n);
-                            stack.add(n);
-                        }
-                    }
-                }
-                count ++;
-            }
+           if(explore(graph,node, seen)){
+               count++;
+           }
         }
         return count;
     }
 
+    private static boolean explore(Map<Integer, List<Integer>> graph, int current, Set<Integer> seen) {
+        if(seen.contains(current)) return false;
+
+        seen.add(current);
+        for(int neighbour : graph.get(current)){
+            explore(graph,neighbour,seen);
+        }
+
+        return true;
+    }
+
     public static int biggestComp(Map<Integer, List<Integer>> graph) {
         Set<Integer> seen = new HashSet<>();
-        Stack<Integer> stack = new Stack<>();
         Set<Integer> allNodes = graph.keySet();
 
-        int largest = Integer.MIN_VALUE;
+        int largest = 0;
 
         for (int node : allNodes) {
-            int currSize = 0;
-            if (!seen.contains(node)) {
-
-                stack.add(node);
-
-                while (!stack.isEmpty()){
-                    int current = stack.pop();
-
-                    seen.add(current);
-                    List<Integer> neigh = graph.get(current);
-                    for(int n : neigh){
-                        if(!seen.contains(n)){
-                            seen.add(n);
-                            stack.add(n);
-                        }
-                    }
-                    currSize++;
-                }
-
+            if(!seen.contains(node)){
+                largest = Math.max(exploreCount(graph,node,seen),largest);
             }
-            largest = Math.max(currSize,largest);
         }
         return largest;
+    }
+
+    private static int exploreCount(Map<Integer, List<Integer>> graph, int current, Set<Integer> seen) {
+        if(seen.contains(current)) return 0;
+
+        seen.add(current);
+        int size = 1;
+
+        for(int neighbour : graph.get(current)){
+           size +=  exploreCount(graph,neighbour,seen);
+        }
+
+        return size;
     }
 
 }
