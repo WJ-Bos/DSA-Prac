@@ -1,5 +1,7 @@
 package classes.utilities;
 
+import classes.utilities.structures.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

@@ -1,5 +1,5 @@
 
-import classes.utilities.TreeNode;
+import classes.utilities.structures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;

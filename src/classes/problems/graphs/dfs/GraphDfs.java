@@ -1,9 +1,8 @@
 package classes.problems.graphs.dfs;
 
-import classes.utilities.Vertex;
+import classes.utilities.structures.Vertex;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 //Adjacency List Impl
 public class GraphDfs {

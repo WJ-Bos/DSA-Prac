@@ -1,6 +1,6 @@
 package classes.problems.trees.dfs;
 
-import classes.utilities.TreeNode;
+import classes.utilities.structures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -61,7 +61,7 @@ public class TreeDfs {
    * CHECK IF STACK IS EMPTY
    *
    * <p>
-   * 2 > Pop The stack and mark as Current classes.utilities.TreeNode being explored and Add val of Mode
+   * 2 > Pop The stack and mark as Current classes.utilities.structures.TreeNode being explored and Add val of Mode
    * to list of
    * values 3 > add Current Nodes Children to the stack, if left is added first
    * right will be
@@ -114,7 +114,7 @@ public class TreeDfs {
    *
    * <p>
    * In a Breadth first traversal we will visit the root and then Both children of
-   * a classes.utilities.TreeNode before
+   * a classes.utilities.structures.TreeNode before
    * going deeper into the tree. Breadth first uses a QUEUE to solve. (FIFO)
    *
    * <p>
@@ -123,7 +123,7 @@ public class TreeDfs {
    * <p>
    * CHECK IF Q IS EMPTY 2 > remove front of Q and mark as current = visited = add
    * to values 3 >
-   * add current classes.utilities.TreeNode Children to the Q left to right.
+   * add current classes.utilities.structures.TreeNode Children to the Q left to right.
    *
    * <p>
    * n = Number of nodes Time = O(N) Space = O(N)

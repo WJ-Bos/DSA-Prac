@@ -1,5 +1,7 @@
 package classes.utilities;
 
+import classes.utilities.structures.TreeNode;
+
 import java.util.*;
 
 public class TreeBuilder {

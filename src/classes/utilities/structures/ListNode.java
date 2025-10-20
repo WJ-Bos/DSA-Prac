@@ -1,4 +1,4 @@
-package classes.utilities;
+package classes.utilities.structures;
 
 public class ListNode {
     public int val;

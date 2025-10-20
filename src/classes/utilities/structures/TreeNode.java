@@ -1,13 +1,13 @@
-package classes.utilities;
+package classes.utilities.structures;
 
 public class TreeNode {
 
-  String val;
+  public String val;
 
-  Integer value;
+  public Integer value;
 
-  TreeNode left;
-  TreeNode right;
+  public TreeNode left;
+  public TreeNode right;
 
   public TreeNode(String val) {
     this.val = val;

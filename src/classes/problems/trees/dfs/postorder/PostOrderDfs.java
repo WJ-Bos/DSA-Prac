@@ -1,7 +1,7 @@
 package classes.problems.trees.dfs.postorder;
 
 import classes.utilities.TreeBuilder;
-import classes.utilities.TreeNode;
+import classes.utilities.structures.TreeNode;
 
 import java.util.List;
 

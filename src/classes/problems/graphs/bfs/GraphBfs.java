@@ -1,9 +1,7 @@
 package classes.problems.graphs.bfs;
 
-import classes.utilities.Vertex;
+import classes.utilities.structures.Vertex;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 

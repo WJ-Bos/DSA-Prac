@@ -1,7 +1,7 @@
 package classes.problems.trees.dfs.searching;
 
 import classes.utilities.TreeBuilder;
-import classes.utilities.TreeNode;
+import classes.utilities.structures.TreeNode;
 
 public class Searching {
     public static void main(String[] args) {

@@ -1,11 +1,7 @@
 package classes.problems.linkedlist;
 
 import classes.utilities.LinkedListUtils;
-import classes.utilities.ListNode;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import classes.utilities.structures.ListNode;
 
 public class PalindromeLinkedList {
     public static void main(String[] args) {

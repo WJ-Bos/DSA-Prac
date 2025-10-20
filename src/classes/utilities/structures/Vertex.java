@@ -1,4 +1,4 @@
-package classes.utilities;
+package classes.utilities.structures;
 
 import java.util.ArrayList;
 import java.util.List;
