@@ -1,4 +1,4 @@
-package classes.problems.arrays;
+package classes.problems.arrays.greedy;
 
 public class BuyAndSellStock {
 
